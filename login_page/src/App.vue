@@ -2,11 +2,12 @@
 	<main>
 		<section class="login-container">
 			<div class="container login">
-				<p>Comece agora sua jornada no mundo <strong>dev</strong>, faça agora seu login e aproveite nosso curso <strong>gratuito!</strong></p>
+				<p v-if="!input_name">Comece agora sua jornada no mundo <strong>dev</strong>, faça agora seu login e aproveite nosso curso <strong>gratuito!</strong></p>
+				<p v-else>Muito bem <strong>{{ input_name }}</strong> agora é só partir para sua viagem pelo aprendizado!</p>
 				<div class="card">
 					<img src="./assets/rockt_icon.svg" alt="Imagem de foguete">
 					<div class="box-inputs">
-						<input type="text" placeholder="username">
+						<input type="text" v-model="input_name" placeholder="username">
 						<input type="password" placeholder="senha">
 						<a href="https://byteseridojr.netlify.app">Esqueceu sua senha?</a>
 					</div>
@@ -26,7 +27,18 @@
 
 <script>
 	export default{
-    
+		data(){
+			return{
+				input_name: ""
+			}
+		},
+
+		methods: {
+			submitForm(e){
+				e.preventDefault();
+
+			}
+		}
 	}
 </script>
 
@@ -96,6 +108,11 @@
 		color: #C8A585;
 		font-weight: 600;
 		font-size: 0.75rem;
+	}
+
+	input:focus{
+		border:  2px solid #C8A585;
+		outline: none;
 	}
 
 	a{
