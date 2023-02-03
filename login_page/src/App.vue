@@ -13,8 +13,8 @@
 						<input type="password" placeholder="senha">
 						<a href="https://byteseridojr.netlify.app">Esqueceu sua senha?</a>
 					</div>
-					<div class="box-buttons">
-						<button>
+					<div class="box-buttons" @click="teste()">
+						<button >
 							Partir
 						</button>
 					</div>
@@ -39,9 +39,14 @@
 			submitForm(e){
 				e.preventDefault();
 
+			},
+
+			teste(){
+				alert(`Olá, ${this.input_name}, você fez login`)
 			}
 		}
 	}
+
 </script>
 
 <style scoped>
