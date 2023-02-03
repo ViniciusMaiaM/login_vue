@@ -2,8 +2,10 @@
 	<main>
 		<section class="login-container">
 			<div class="container login">
-				<p v-if="!input_name">Comece agora sua jornada no mundo <strong>dev</strong>, faça agora seu login e aproveite nosso curso <strong>gratuito!</strong></p>
-				<p v-else>Muito bem <strong>{{ input_name }}</strong> agora é só partir para sua viagem pelo aprendizado!</p>
+				<Transition mode="out-in" name="fade-in">
+					<p v-if="!input_name">Comece agora sua jornada no mundo <strong>dev</strong>, faça agora seu login e aproveite nosso curso <strong>gratuito!</strong></p>
+					<p v-else>Muito bem <strong>{{ input_name }}</strong> agora é só partir para sua viagem pelo aprendizado!</p>
+				</Transition>
 				<div class="card">
 					<img src="./assets/rockt_icon.svg" alt="Imagem de foguete">
 					<div class="box-inputs">
@@ -147,5 +149,18 @@
 		font-size: 0.75rem;
 		cursor: pointer;
 		align-self: flex-end;
+	}
+
+	.fade-in-enter-active {
+		transition: opacity 350ms ;
+	}
+
+	.fade-in-leave-active {
+		transition: opacity 350ms ;
+	}
+
+	.fade-in-enter,
+	.fade-in-leave-to {
+		opacity: 0;
 	}
 </style>
